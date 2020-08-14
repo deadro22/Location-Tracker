@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>all locations of little hacker men</title>
+    <style>
+      * {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        color: rgb(3, 214, 3);
+      }
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <% allLoc.forEach((location)=>{%>
+    <div style="margin: 2em;">
+      <h3>
+        Little hacker man:
+        <a
+          target="_blank"
+          href="http://www.google.com/maps/place/<%=location.lat%>,<%=location.long%>"
+          >Knock Door</a
+        >
+      </h3>
+      <p><%=location.lat%></p>
+      <p><%=location.long%></p>
+    </div>
+    <%})%>
+  </body>
+</html>

