@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("dotenv").config();
 
-mongoose.connect(process.env.DB_URI, (err) => {
+mongoose.connect(process.env.MONGODB_URI, (err) => {
   if (err) throw err;
   console.log("Connected to DB");
 });
